@@ -1,8 +1,8 @@
 {
-  "name": "bit-by-bit",
-  "version": "0.0.2",
-  "description": "tiny libraries",
-  "main": "bbb.js",
+  "name": "bbb-dmx",
+  "version": "0.0.1",
+  "description": "dmx libraries depends to bit-by-bit",
+  "main": "bbb-dmx.js",
   "directories": {
     "lib": "./lib",
     "test": "./test",
@@ -10,13 +10,13 @@
   },
   "scripts": {
     "test": "NODE_PATH=. jasmine-node test",
-    "test-dev": "NODE_PATH=. jasmine-node --autotest test --watch ./bbb.js ./lib"
+    "test-dev": "NODE_PATH=. jasmine-node --autotest test --watch ./bbb-dmx.js ./lib"
   },
   "keywords": [],
   "author": "ISHII 2bit",
   "repository": {
     "type": "git",
-    "url": "https://github.com/2bbb/node-bit_by_bit"
+    "url": "https://github.com/2bbb/node-bbb-dmx"
   },
   "license": "MIT",
   "devDependencies": {
@@ -25,7 +25,7 @@
   "dependencies": {
     "artnet-node": "2bbb/artnet-node",
     "lazier": "0.0.1",
-    "node-osc": "^2.0.4"
+    "bit-by-bit": "2bbb/node-bit_by_bit"
   },
   "engines": {
     "node": ">=6.0"
