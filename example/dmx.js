@@ -12,12 +12,20 @@ const qspot15 = dmx.controllers.Qspot15.Spot.create(
     { osc_port }
 );
 
-const controller = dmx.controllers.MatrixMovingHead5x5.create(
+const matrix5x5 = dmx.controllers.MatrixMovingHead5x5.create(
     "left",
     101,
     buffer,
     { osc_port }
 );
+matrix5x5.master = 255;
+matrix5x5.led[0][0].r = 255;
+matrix5x5.led[0][1].r = 255;
+matrix5x5.led[1][0].r = 255;
+matrix5x5.led[4][4].r = 255;
+matrix5x5.led[4][4].g = 255;
+matrix5x5.led[4][4].b = 255;
+matrix5x5.led[4][4].w = 255;
 
 const miniWashes = dmx.controller.createUnit(
     "mini18", 
@@ -32,10 +40,16 @@ miniWashes.dimmer_strobe = 255;
 miniWashes.pan.move = 127;
 miniWashes.tilt.move = 127;
 
-
-// controller.master = 255;
 osc.subscribe(osc_port, "/print", () => {
-    console.log(new Date(), JSON.stringify(buffer));
+    console.log(new Date());
+    functional.object.forEach(miniWashes.controllers, (wash, key) => {
+        const address = wash.dmxAddress;
+        const length = wash.dmxLength;
+        console.log("%s/%s address: %d, length: %d", miniWashes.name, key, address, length);
+        console.log(buffer.slice(address - 1, address + length - 1));
+    });
+    console.log("%s/%s address: %d, length: %d", miniWashes.name, matrix5x5.address, matrix5x5.dmxLength);
+    console.log(JSON.stringify(buffer.slice(matrix5x5.address - 1, matrix5x5.address + matrix5x5.dmxLength - 1)));
 });
 
 const miniWashesDirection = functional.range(1, 9);
