@@ -9,5 +9,7 @@ const bbb_dmx = lazier({
 }, __dirname);
 bbb_dmx.functional = bbb.functional;
 bbb_dmx.osc = bbb.osc;
+bbb_dmx.math = bbb.math;
+bbb_dmx.container = bbb.container;
 
 module.exports = bbb_dmx;

@@ -25,7 +25,7 @@
   "dependencies": {
     "artnet-node": "2bbb/artnet-node",
     "lazier": "0.0.1",
-    "bit-by-bit": "2bbb/node-bit_by_bit"
+    "bit-by-bit": "^0.0.4"
   },
   "engines": {
     "node": ">=6.0"
