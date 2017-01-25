@@ -1,4 +1,13 @@
-const { osc, dmx, functional, artnet } = require('../bbb-dmx.js');
+const {
+    functional,
+    math,
+    container,
+    osc,
+    dmx,
+    artnet,
+    color,
+    chase
+} = require('../bbb-dmx.js');
 
 const client = artnet.Clients.create('192.168.1.101', { size: 512 });
 const buffer = client.get();
